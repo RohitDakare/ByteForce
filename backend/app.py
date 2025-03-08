@@ -196,5 +196,23 @@ def delete_skill(skill_id):
         db.session.rollback()
         return jsonify({'error': str(e)}), 400
 
+@app.route('/api/courses', methods=['GET'])
+def get_courses():
+    """Fetch free courses from Coursera API"""
+    coursera_api_key = "gs6nwTeDAGTNF7RCsqE9qmuOArK63lprAcFiEvcxuz8YH5cs"
+    url = "https://api.coursera.org/api/courses.v1"
+    headers = {
+        "Authorization": f"Bearer {coursera_api_key}"
+    }
+    
+    response = requests.get(url, headers=headers)
+    
+    if response.status_code == 200:
+        courses = response.json()
+        return jsonify(courses), 200
+    else:
+        return jsonify({"error": "Failed to fetch courses"}), response.status_code
+
 if __name__ == '__main__':
+    app.run(debug=True, port=5000)
     app.run(debug=True, port=5000)
