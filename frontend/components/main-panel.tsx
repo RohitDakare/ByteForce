@@ -88,7 +88,7 @@ export default function MainPanel({ currentCluster }: MainPanelProps) {
   ]
 
   return (
-    <main className="flex-1 h-screen overflow-y-auto p-6 bg-background">
+    <main className="flex-1 overflow-y-auto p-6">
       <div className="flex items-center justify-between mb-6">
         <div>
           <h1 className="text-3xl font-bold tracking-tight">Dashboard</h1>
@@ -100,18 +100,18 @@ export default function MainPanel({ currentCluster }: MainPanelProps) {
       </div>
 
       <Tabs defaultValue="visualization" className="mb-6">
-        <TabsList className="w-full sm:w-auto">
-          <TabsTrigger value="visualization" className="flex-1 sm:flex-none">Cluster Visualization</TabsTrigger>
-          <TabsTrigger value="learning" className="flex-1 sm:flex-none">Learning Path</TabsTrigger>
+        <TabsList>
+          <TabsTrigger value="visualization">Cluster Visualization</TabsTrigger>
+          <TabsTrigger value="learning">Learning Path</TabsTrigger>
         </TabsList>
 
         <TabsContent value="visualization" className="mt-4">
-          <Card className="border-0 shadow-md">
+          <Card>
             <CardHeader>
               <CardTitle>Skill Cluster Visualization</CardTitle>
             </CardHeader>
             <CardContent>
-              <div ref={plotContainerRef} className="w-full h-[500px] bg-white dark:bg-gray-800 rounded-md" />
+              <div ref={plotContainerRef} className="w-full h-[400px] bg-white dark:bg-gray-800 rounded-md border" />
               <div className="mt-4 flex gap-4 flex-wrap">
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 rounded-full bg-blue-500"></div>
@@ -135,7 +135,7 @@ export default function MainPanel({ currentCluster }: MainPanelProps) {
         </TabsContent>
 
         <TabsContent value="learning" className="mt-4">
-          <Card className="border-0 shadow-md">
+          <Card>
             <CardHeader>
               <CardTitle>Your Learning Path</CardTitle>
             </CardHeader>
@@ -171,3 +171,4 @@ export default function MainPanel({ currentCluster }: MainPanelProps) {
     </main>
   )
 }
+

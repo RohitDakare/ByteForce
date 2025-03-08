@@ -8,7 +8,8 @@ interface DashboardLayoutProps {
 export default function DashboardLayout({ children }: DashboardLayoutProps) {
   return (
     <SidebarProvider>
-      <div className="flex h-screen w-full overflow-hidden bg-gray-50 dark:bg-gray-900">{children}</div>
+      <div className="flex min-h-screen bg-gray-50 dark:bg-gray-900">{children}</div>
     </SidebarProvider>
   )
 }
+
